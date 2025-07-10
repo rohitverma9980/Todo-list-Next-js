@@ -45,8 +45,8 @@ const Todos = () => {
             <button
               type="button"
               onClick={(e) => {
-                e.stopPropagation(); // ✅ Stop event bubbling
-                handleTodoDelete(todo.id); // ✅ Delete only on button click
+                e.stopPropagation();
+                handleTodoDelete(todo.id); 
               }}
               className="bg-rose-400 hover:bg-rose-500 text-white px-3 py-1 rounded"
             >
