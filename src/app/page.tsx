@@ -2,7 +2,7 @@ import AddToDo from "@/components/Add-Todo";
 import Navbar from "@/components/Navbar";
 import Todos from "@/components/todos";
 import { RiTodoLine } from "react-icons/ri";
-import { Suspense } from "react"; // ✅ Import Suspense
+import { Suspense } from "react"; 
 
 function Todo() {
   return (
@@ -14,13 +14,13 @@ function Todo() {
       </h2>
 
       <Suspense fallback={<div>Loading filter...</div>}>
-        <Navbar /> {/* ✅ Wrap with Suspense */}
+        <Navbar /> 
       </Suspense>
 
       <AddToDo />
 
       <Suspense fallback={<div>Loading todos...</div>}>
-        <Todos /> {/* ✅ Wrap with Suspense */}
+        <Todos /> 
       </Suspense>
     </main>
   );

@@ -9,6 +9,7 @@ const Todos = () => {
   const todosFilter = searchParams.get("todos");
 
   let filterTodos = todos;
+
   if (todosFilter === "active") {
     filterTodos = todos.filter((todo) => !todo.completed);
   } else if (todosFilter === "completed") {
@@ -43,7 +44,10 @@ const Todos = () => {
           {todo.completed && (
             <button
               type="button"
-              onClick={() => handleTodoDelete(todo.id)}
+              onClick={(e) => {
+                e.stopPropagation(); // ✅ Stop event bubbling
+                handleTodoDelete(todo.id); // ✅ Delete only on button click
+              }}
               className="bg-rose-400 hover:bg-rose-500 text-white px-3 py-1 rounded"
             >
               Delete
