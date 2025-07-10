@@ -2,6 +2,7 @@ import AddToDo from "@/components/Add-Todo";
 import Navbar from "@/components/Navbar";
 import Todos from "@/components/todos";
 import { RiTodoLine } from "react-icons/ri";
+import { Suspense } from "react"; // ✅ Import Suspense
 
 function Todo() {
   return (
@@ -12,9 +13,15 @@ function Todo() {
         <RiTodoLine className="text-green-600 text-3xl sm:text-4xl" />
       </h2>
 
-      <Navbar />
+      <Suspense fallback={<div>Loading filter...</div>}>
+        <Navbar /> {/* ✅ Wrap with Suspense */}
+      </Suspense>
+
       <AddToDo />
-      <Todos />
+
+      <Suspense fallback={<div>Loading todos...</div>}>
+        <Todos /> {/* ✅ Wrap with Suspense */}
+      </Suspense>
     </main>
   );
 }
